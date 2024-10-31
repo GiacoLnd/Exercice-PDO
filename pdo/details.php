@@ -50,7 +50,11 @@ try {
             foreach($batailles as $bataille){
                         echo "<tr>";
                         echo '<td>'. $bataille['nom_bataille'] .'</td>'; 
-                        echo '<td>'. $bataille['date_bataille'] .'</td>';
+
+                        $dateTime = new DateTime($bataille['date_bataille']);
+                        $dateFr = $dateTime->format('d/m/Y');
+
+                        echo '<td>'. $dateFr .'</td>';
                         echo '<td>'. $bataille['qte'] .'</td>';
                         echo '</tr>';
                 }
